@@ -1,0 +1,247 @@
+{
+    "info": {
+      "name": "Mundo 5 - Estácio",
+      "_postman_id": "a0b1c2d3-e4f5-6789-abcd-ef0123456789",
+      "version": "1.0",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Register User",
+        "request": {
+          "auth": {
+            "type": "noauth"
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"username\": \"new_user\",\n    \"password\": \"password123\",\n    \"email\": \"new_user@example.com\",\n    \"perfil\": \"user\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/auth/register",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "api",
+              "auth",
+              "register"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Login",
+        "request": {
+          "auth": {
+            "type": "noauth"
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"username\": \"new_user\",\n    \"password\": \"password123\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/auth/login",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "api",
+              "auth",
+              "login"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Profile",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/api/profile",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "api",
+              "profile"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Users (Admin Only)",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{admin_token}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/api/users",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "api",
+              "users"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Contracts (Admin Only)",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{admin_token}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/api/contracts?empresa=EmpresaXYZ&inicio=2023-09-15",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "api",
+              "contracts"
+            ],
+            "query": [
+              {
+                "key": "empresa",
+                "value": "EmpresaXYZ"
+              },
+              {
+                "key": "inicio",
+                "value": "2023-09-15"
+              }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Create Contract (Admin Only)",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "{{admin_token}}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "default"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"empresa\": \"Empresa XYZ\",\n    \"data_inicio\": \"2023-09-15\",\n    \"detalhes\": \"Detalhes do contrato\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/contracts",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "api",
+              "contracts"
+            ]
+          }
+        },
+        "response": []
+      }
+    ],
+    "event": [],
+    "variable": [
+      {
+        "key": "token",
+        "value": "",
+        "type": "string"
+      },
+      {
+        "key": "admin_token",
+        "value": "",
+        "type": "string"
+      }
+    ]
+  }
+  
